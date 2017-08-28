@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mustacheExpress = require('mustache-express')
 const dal = require('./dal')
-const roboties = dal.getRobot()
 
 // const url =
 
@@ -18,6 +17,8 @@ app.set('view engine', 'mustache')
 app.set('views', __dirname + '/views')
 
 app.get('/', (req, res) => {
+  const roboties = dal.getRobot()
+  
     console.log("roboties", roboties)
     res.render('index', {roboties: roboties})
 })
